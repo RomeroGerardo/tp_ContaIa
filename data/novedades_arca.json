@@ -1,0 +1,112 @@
+[
+  {
+    "id": "nov-001",
+    "titulo": "ARCA implementa nueva modalidad de facturación electrónica para comercios",
+    "resumen": "La Agencia de Recaudación y Control Aduanero (ARCA) estableció que a partir del 1° de agosto todos los comercios con ingresos anuales superiores a $50 millones deberán adoptar el nuevo sistema de facturación electrónica 3.0 con trazabilidad en tiempo real.",
+    "categoria": "facturacion",
+    "fecha": "2026-06-10",
+    "fuente": "Resolución General 5500/2026",
+    "importante": true,
+    "link": "https://www.arca.gob.ar",
+    "tags": ["facturación", "comercio", "electrónica"]
+  },
+  {
+    "id": "nov-002",
+    "titulo": "Actualización de topes de categorías del Monotributo — Julio 2026",
+    "resumen": "ARCA oficializó la actualización semestral de los montos máximos de facturación para cada categoría del Régimen Simplificado. Las nuevas escalas regirán desde el 1° de julio de 2026. Se recomienda a todos los monotributistas verificar si su facturación anualizada supera los nuevos límites.",
+    "categoria": "monotributo",
+    "fecha": "2026-06-05",
+    "fuente": "Resolución General 5498/2026",
+    "importante": true,
+    "link": "https://www.arca.gob.ar",
+    "tags": ["monotributo", "recategorización", "julio 2026"]
+  },
+  {
+    "id": "nov-003",
+    "titulo": "Prórroga para la presentación de DDJJ de Bienes Personales 2025",
+    "resumen": "Se otorgó una prórroga hasta el 22 de junio de 2026 para la presentación de las declaraciones juradas del Impuesto sobre los Bienes Personales correspondientes al período fiscal 2025. Los contribuyentes que presenten antes del 15 de junio podrán acceder a un descuento del 10% en el saldo a pagar.",
+    "categoria": "bienes_personales",
+    "fecha": "2026-05-28",
+    "fuente": "Resolución General 5495/2026",
+    "importante": true,
+    "link": "https://www.arca.gob.ar",
+    "tags": ["bienes personales", "DDJJ", "prórroga 2025"]
+  },
+  {
+    "id": "nov-004",
+    "titulo": "Nuevo sistema de adhesión simplificada al Monotributo desde la app ARCA Móvil",
+    "resumen": "A partir de esta semana los emprendedores y pequeños comerciantes podrán inscribirse al Monotributo directamente desde la aplicación móvil de ARCA, sin necesidad de concurrir a una dependencia. El proceso tarda menos de 10 minutos y permite seleccionar la categoría inicial según facturación estimada.",
+    "categoria": "monotributo",
+    "fecha": "2026-05-20",
+    "fuente": "ARCA Comunicado de Prensa",
+    "importante": false,
+    "link": "https://www.arca.gob.ar",
+    "tags": ["monotributo", "inscripción", "app móvil"]
+  },
+  {
+    "id": "nov-005",
+    "titulo": "Blanqueo de deudas impositivas: ARCA lanza plan de facilidades de pago",
+    "resumen": "ARCA habilitó un nuevo plan de regularización de deudas impositivas y previsionales con hasta 60 cuotas para contribuyentes que adeuden pagos anteriores a diciembre de 2025. Las deudas en monotributo tienen una reducción del 50% en los intereses resarcitorios si se adhieren antes del 31 de julio de 2026.",
+    "categoria": "deudas",
+    "fecha": "2026-05-15",
+    "fuente": "Resolución General 5490/2026",
+    "importante": true,
+    "link": "https://www.arca.gob.ar",
+    "tags": ["deudas", "planes de pago", "regularización"]
+  },
+  {
+    "id": "nov-006",
+    "titulo": "IVA: modificaciones en alícuotas para servicios digitales importados",
+    "resumen": "Se actualizaron las alícuotas de IVA aplicables a servicios digitales prestados por empresas del exterior (streaming, software, publicidad online). Los responsables inscriptos deben revisar la correcta imputación en sus declaraciones juradas mensuales a partir del 1° de julio.",
+    "categoria": "iva",
+    "fecha": "2026-05-08",
+    "fuente": "Resolución General 5488/2026",
+    "importante": false,
+    "link": "https://www.arca.gob.ar",
+    "tags": ["IVA", "servicios digitales", "alícuotas"]
+  },
+  {
+    "id": "nov-007",
+    "titulo": "Ganancias: nueva deducción especial para emprendedores tecnológicos",
+    "resumen": "La ley de Economía del Conocimiento establece que los desarrolladores de software, diseñadores digitales y profesionales tecnológicos podrán deducir hasta el 80% de sus ingresos como gastos necesarios para la actividad si se inscriben en el Registro de Beneficiarios de Economía del Conocimiento.",
+    "categoria": "ganancias",
+    "fecha": "2026-04-30",
+    "fuente": "Ley 27.506 — Economía del Conocimiento",
+    "importante": false,
+    "link": "https://www.arca.gob.ar",
+    "tags": ["ganancias", "economía del conocimiento", "deducción"]
+  },
+  {
+    "id": "nov-008",
+    "titulo": "Factura de crédito electrónica MiPyME: obligatoria para más contribuyentes",
+    "resumen": "Desde el 1° de agosto de 2026, la emisión de Factura de Crédito Electrónica MiPyME será obligatoria para todas las operaciones entre empresas (B2B) cuando el proveedor sea una Micro, Pequeña o Mediana Empresa. Esto aplica también a quienes facturan servicios profesionales a otras empresas.",
+    "categoria": "facturacion",
+    "fecha": "2026-04-22",
+    "fuente": "Resolución General 5485/2026",
+    "importante": true,
+    "link": "https://www.arca.gob.ar",
+    "tags": ["factura electrónica", "MiPyME", "B2B"]
+  },
+  {
+    "id": "nov-009",
+    "titulo": "SSSS: Nuevos valores de obra social para monotributistas categorías A y B",
+    "resumen": "La Superintendencia de Servicios de Salud actualizó los valores mínimos de la prestación de obra social para trabajadores independientes de categorías A y B del monotributo. Los nuevos valores aseguran cobertura de al menos 40 prestaciones básicas del PMO.",
+    "categoria": "seguridad_social",
+    "fecha": "2026-04-15",
+    "fuente": "Disposición SSSALUD 428/2026",
+    "importante": false,
+    "link": "https://www.arca.gob.ar",
+    "tags": ["obra social", "monotributo", "cobertura médica"]
+  },
+  {
+    "id": "nov-010",
+    "titulo": "Aduanas: simplificación del despacho para importadores frecuentes",
+    "resumen": "ARCA implementó el nuevo sistema de Despacho Simplificado para importadores con más de 10 operaciones anuales y perfil de cumplimiento verificado. El nuevo sistema reduce los tiempos de liberación de mercadería en hasta un 70% y elimina la presentación de documentación física.",
+    "categoria": "aduanas",
+    "fecha": "2026-04-05",
+    "fuente": "Resolución General 5480/2026",
+    "importante": false,
+    "link": "https://www.arca.gob.ar",
+    "tags": ["aduanas", "importación", "despacho simplificado"]
+  }
+]

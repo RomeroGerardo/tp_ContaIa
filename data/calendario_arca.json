@@ -1,0 +1,317 @@
+[
+  {
+    "id": "mono-enero-2025",
+    "titulo": "Pago Cuota Monotributo — Enero 2025",
+    "tipo": "monotributo",
+    "fecha": "2025-01-20",
+    "descripcion": "Vencimiento mensual cuota unificada monotributo. Fecha varía según terminación CUIT.",
+    "diasAlerta": 7,
+    "recurrente": true,
+    "terminacionCUIT": {
+      "0-1": "2025-01-07",
+      "2-3": "2025-01-08",
+      "4-5": "2025-01-09",
+      "6-7": "2025-01-10",
+      "8-9": "2025-01-13"
+    }
+  },
+  {
+    "id": "recategorizacion-enero-2025",
+    "titulo": "Recategorización Semestral Monotributo",
+    "tipo": "recategorizacion",
+    "fecha": "2025-01-20",
+    "descripcion": "Período de recategorización semestral. El contribuyente debe evaluar si sus ingresos o parámetros superan los límites de su categoría actual.",
+    "diasAlerta": 15,
+    "recurrente": false
+  },
+  {
+    "id": "mono-febrero-2025",
+    "titulo": "Pago Cuota Monotributo — Febrero 2025",
+    "tipo": "monotributo",
+    "fecha": "2025-02-20",
+    "terminacionCUIT": {
+      "0-1": "2025-02-07",
+      "2-3": "2025-02-10",
+      "4-5": "2025-02-11",
+      "6-7": "2025-02-12",
+      "8-9": "2025-02-13"
+    }
+  },
+  {
+    "id": "mono-marzo-2025",
+    "titulo": "Pago Cuota Monotributo — Marzo 2025",
+    "tipo": "monotributo",
+    "fecha": "2025-03-20",
+    "terminacionCUIT": {
+      "0-1": "2025-03-07",
+      "2-3": "2025-03-10",
+      "4-5": "2025-03-11",
+      "6-7": "2025-03-12",
+      "8-9": "2025-03-13"
+    }
+  },
+  {
+    "id": "ganancias-personas-2024",
+    "titulo": "Vencimiento DDJJ Ganancias Personas Físicas 2024",
+    "tipo": "ganancias",
+    "fecha": "2025-06-20",
+    "descripcion": "Presentación y pago de la declaración jurada anual de Impuesto a las Ganancias para personas físicas. Período fiscal 2024.",
+    "diasAlerta": 30
+  },
+  {
+    "id": "bienes-personales-2024",
+    "titulo": "Vencimiento DDJJ Bienes Personales 2024",
+    "tipo": "bienes_personales",
+    "fecha": "2025-06-20",
+    "descripcion": "Presentación y pago de la declaración jurada anual de Bienes Personales. Período fiscal 2024.",
+    "diasAlerta": 30
+  },
+  {
+    "id": "mono-abril-2025",
+    "titulo": "Pago Cuota Monotributo — Abril 2025",
+    "tipo": "monotributo",
+    "fecha": "2025-04-22",
+    "terminacionCUIT": {
+      "0-1": "2025-04-07",
+      "2-3": "2025-04-08",
+      "4-5": "2025-04-09",
+      "6-7": "2025-04-10",
+      "8-9": "2025-04-11"
+    }
+  },
+  {
+    "id": "mono-mayo-2025",
+    "titulo": "Pago Cuota Monotributo — Mayo 2025",
+    "tipo": "monotributo",
+    "fecha": "2025-05-20",
+    "terminacionCUIT": {
+      "0-1": "2025-05-07",
+      "2-3": "2025-05-08",
+      "4-5": "2025-05-09",
+      "6-7": "2025-05-12",
+      "8-9": "2025-05-13"
+    }
+  },
+  {
+    "id": "mono-junio-2025",
+    "titulo": "Pago Cuota Monotributo — Junio 2025",
+    "tipo": "monotributo",
+    "fecha": "2025-06-20",
+    "terminacionCUIT": {
+      "0-1": "2025-06-09",
+      "2-3": "2025-06-10",
+      "4-5": "2025-06-11",
+      "6-7": "2025-06-12",
+      "8-9": "2025-06-13"
+    }
+  },
+  {
+    "id": "recategorizacion-julio-2025",
+    "titulo": "Recategorización Semestral Monotributo — Julio 2025",
+    "tipo": "recategorizacion",
+    "fecha": "2025-07-20",
+    "descripcion": "Segundo período de recategorización semestral del año. Verificá si tus ingresos acumulados desde enero superan el límite de tu categoría.",
+    "diasAlerta": 15
+  },
+  {
+    "id": "mono-julio-2025",
+    "titulo": "Pago Cuota Monotributo — Julio 2025",
+    "tipo": "monotributo",
+    "fecha": "2025-07-20",
+    "terminacionCUIT": {
+      "0-1": "2025-07-07",
+      "2-3": "2025-07-08",
+      "4-5": "2025-07-09",
+      "6-7": "2025-07-10",
+      "8-9": "2025-07-11"
+    }
+  },
+  {
+    "id": "mono-agosto-2025",
+    "titulo": "Pago Cuota Monotributo — Agosto 2025",
+    "tipo": "monotributo",
+    "fecha": "2025-08-20",
+    "terminacionCUIT": {
+      "0-1": "2025-08-07",
+      "2-3": "2025-08-08",
+      "4-5": "2025-08-11",
+      "6-7": "2025-08-12",
+      "8-9": "2025-08-13"
+    }
+  },
+  {
+    "id": "mono-septiembre-2025",
+    "titulo": "Pago Cuota Monotributo — Septiembre 2025",
+    "tipo": "monotributo",
+    "fecha": "2025-09-22",
+    "terminacionCUIT": {
+      "0-1": "2025-09-08",
+      "2-3": "2025-09-09",
+      "4-5": "2025-09-10",
+      "6-7": "2025-09-11",
+      "8-9": "2025-09-12"
+    }
+  },
+  {
+    "id": "mono-octubre-2025",
+    "titulo": "Pago Cuota Monotributo — Octubre 2025",
+    "tipo": "monotributo",
+    "fecha": "2025-10-20",
+    "terminacionCUIT": {
+      "0-1": "2025-10-07",
+      "2-3": "2025-10-08",
+      "4-5": "2025-10-09",
+      "6-7": "2025-10-10",
+      "8-9": "2025-10-13"
+    }
+  },
+  {
+    "id": "mono-noviembre-2025",
+    "titulo": "Pago Cuota Monotributo — Noviembre 2025",
+    "tipo": "monotributo",
+    "fecha": "2025-11-20",
+    "terminacionCUIT": {
+      "0-1": "2025-11-07",
+      "2-3": "2025-11-10",
+      "4-5": "2025-11-11",
+      "6-7": "2025-11-12",
+      "8-9": "2025-11-13"
+    }
+  },
+  {
+    "id": "mono-diciembre-2025",
+    "titulo": "Pago Cuota Monotributo — Diciembre 2025",
+    "tipo": "monotributo",
+    "fecha": "2025-12-19",
+    "terminacionCUIT": {
+      "0-1": "2025-12-08",
+      "2-3": "2025-12-09",
+      "4-5": "2025-12-10",
+      "6-7": "2025-12-11",
+      "8-9": "2025-12-12"
+    }
+  },
+  {
+    "id": "recategorizacion-enero-2026",
+    "titulo": "Recategorización Semestral Monotributo — Enero 2026",
+    "tipo": "recategorizacion",
+    "fecha": "2026-01-20",
+    "descripcion": "Período de recategorización semestral. Revisá tus ingresos del segundo semestre 2025 y ajustá tu categoría si es necesario.",
+    "diasAlerta": 15
+  },
+  {
+    "id": "mono-enero-2026",
+    "titulo": "Pago Cuota Monotributo — Enero 2026",
+    "tipo": "monotributo",
+    "fecha": "2026-01-20",
+    "terminacionCUIT": {
+      "0-1": "2026-01-07",
+      "2-3": "2026-01-08",
+      "4-5": "2026-01-09",
+      "6-7": "2026-01-12",
+      "8-9": "2026-01-13"
+    }
+  },
+  {
+    "id": "mono-febrero-2026",
+    "titulo": "Pago Cuota Monotributo — Febrero 2026",
+    "tipo": "monotributo",
+    "fecha": "2026-02-20",
+    "terminacionCUIT": {
+      "0-1": "2026-02-09",
+      "2-3": "2026-02-10",
+      "4-5": "2026-02-11",
+      "6-7": "2026-02-12",
+      "8-9": "2026-02-13"
+    }
+  },
+  {
+    "id": "mono-marzo-2026",
+    "titulo": "Pago Cuota Monotributo — Marzo 2026",
+    "tipo": "monotributo",
+    "fecha": "2026-03-20",
+    "terminacionCUIT": {
+      "0-1": "2026-03-09",
+      "2-3": "2026-03-10",
+      "4-5": "2026-03-11",
+      "6-7": "2026-03-12",
+      "8-9": "2026-03-13"
+    }
+  },
+  {
+    "id": "mono-abril-2026",
+    "titulo": "Pago Cuota Monotributo — Abril 2026",
+    "tipo": "monotributo",
+    "fecha": "2026-04-20",
+    "terminacionCUIT": {
+      "0-1": "2026-04-07",
+      "2-3": "2026-04-08",
+      "4-5": "2026-04-09",
+      "6-7": "2026-04-10",
+      "8-9": "2026-04-13"
+    }
+  },
+  {
+    "id": "mono-mayo-2026",
+    "titulo": "Pago Cuota Monotributo — Mayo 2026",
+    "tipo": "monotributo",
+    "fecha": "2026-05-20",
+    "terminacionCUIT": {
+      "0-1": "2026-05-07",
+      "2-3": "2026-05-08",
+      "4-5": "2026-05-09",
+      "6-7": "2026-05-11",
+      "8-9": "2026-05-12"
+    }
+  },
+  {
+    "id": "mono-junio-2026",
+    "titulo": "Pago Cuota Monotributo — Junio 2026",
+    "tipo": "monotributo",
+    "fecha": "2026-06-22",
+    "terminacionCUIT": {
+      "0-1": "2026-06-08",
+      "2-3": "2026-06-09",
+      "4-5": "2026-06-10",
+      "6-7": "2026-06-11",
+      "8-9": "2026-06-12"
+    }
+  },
+  {
+    "id": "ganancias-personas-2025",
+    "titulo": "Vencimiento DDJJ Ganancias Personas Físicas 2025",
+    "tipo": "ganancias",
+    "fecha": "2026-06-23",
+    "descripcion": "Presentación y pago de la declaración jurada anual de Impuesto a las Ganancias para personas físicas. Período fiscal 2025.",
+    "diasAlerta": 30
+  },
+  {
+    "id": "bienes-personales-2025",
+    "titulo": "Vencimiento DDJJ Bienes Personales 2025",
+    "tipo": "bienes_personales",
+    "fecha": "2026-06-22",
+    "descripcion": "Presentación y pago de la declaración jurada anual de Bienes Personales. Período fiscal 2025.",
+    "diasAlerta": 30
+  },
+  {
+    "id": "recategorizacion-julio-2026",
+    "titulo": "Recategorización Semestral Monotributo — Julio 2026",
+    "tipo": "recategorizacion",
+    "fecha": "2026-07-20",
+    "descripcion": "Segundo período de recategorización semestral 2026. Verificá tus ingresos del primer semestre 2026.",
+    "diasAlerta": 15
+  },
+  {
+    "id": "mono-julio-2026",
+    "titulo": "Pago Cuota Monotributo — Julio 2026",
+    "tipo": "monotributo",
+    "fecha": "2026-07-20",
+    "terminacionCUIT": {
+      "0-1": "2026-07-07",
+      "2-3": "2026-07-08",
+      "4-5": "2026-07-09",
+      "6-7": "2026-07-10",
+      "8-9": "2026-07-13"
+    }
+  }
+]
