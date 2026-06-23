@@ -273,7 +273,7 @@ const IAView = (() => {
     const nombre = empresa?.nombreEmpresa || empresa?.nombreDuenio || 'usuario';
     const deudas = empresa?.deudas === 'si' ? 'Tiene deudas pendientes' : 'Al día';
 
-    const preguntaContextualizada = `Actuá como ContaIA, asesor fiscal de Argentina. Usuario: ${nombre} (${tipo}, Categoría: ${categoria}, Deudas: ${deudas}). Responde la siguiente pregunta basándote estrictamente en tu base de conocimiento de ARCA: ${pregunta}`;
+    const preguntaContextualizada = `Actuá como ContaIA, asesor fiscal de Argentina. Usuario: ${nombre} (${tipo}, Categoría: ${categoria}, Deudas: ${deudas}). Responde la siguiente pregunta de forma MUY BREVE (máximo 2 párrafos) y con un lenguaje natural, directo y amigable, basándote en tu conocimiento de ARCA: ${pregunta}`;
 
     const payload = {
       pregunta: preguntaContextualizada

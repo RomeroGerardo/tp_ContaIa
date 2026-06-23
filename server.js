@@ -36,11 +36,21 @@ app.post('/api/chat', (req, res) => {
 
         console.log(`[ContaIA Backend] Respuesta recibida.`);
         
-        // NotebookLM CLI suele devolver texto plano. Removemos info innecesaria
-        const cleanOutput = stdout.split('\n')
+        // NotebookLM CLI suele devolver texto plano o JSON. Removemos info innecesaria
+        let cleanOutput = stdout.split('\n')
             .filter(line => !line.includes('Loading') && !line.includes('Querying notebook'))
             .join('\n')
             .trim();
+
+        // Intentar parsear como JSON si NLM devolvió el objeto estructurado
+        try {
+            const parsed = JSON.parse(cleanOutput);
+            if (parsed && parsed.answer) {
+                cleanOutput = parsed.answer;
+            }
+        } catch (e) {
+            // No es JSON, dejar como texto plano
+        }
 
         res.json({ respuesta: cleanOutput || "Sin respuesta válida del notebook." });
     });
