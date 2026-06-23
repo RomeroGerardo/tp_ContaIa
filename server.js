@@ -21,9 +21,9 @@ app.post('/api/chat', (req, res) => {
 
     console.log(`[ContaIA Backend] Consultando NotebookLM: "${pregunta}"...`);
 
-    // Comando para ejecutar el CLI de NotebookLM de forma segura escapando comillas
-    const safePregunta = pregunta.replace(/"/g, '\\"');
-    const command = `nlm query notebook ${NOTEBOOK_ID} "${safePregunta}"`;
+    // Limpiamos comillas dobles y saltos de línea para no romper el comando en consola
+    const promptSeguro = req.body.pregunta.replace(/"/g, '\\"').replace(/\n/g, ' ').replace(/\r/g, '');
+    const command = `nlm query notebook ${NOTEBOOK_ID} "${promptSeguro}"`;
 
     exec(command, (error, stdout, stderr) => {
         if (error) {
