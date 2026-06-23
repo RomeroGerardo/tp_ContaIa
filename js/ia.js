@@ -266,14 +266,14 @@ const IAView = (() => {
   }
 
   async function callBackendAPI(pregunta) {
-    const url = \`http://localhost:3000/api/chat\`;
+    const url = `http://localhost:3000/api/chat`;
 
     const tipo = empresa?.tipo || 'monotributista';
     const categoria = empresa?.categoriaMonotributo || 'no especificada';
     const nombre = empresa?.nombreEmpresa || empresa?.nombreDuenio || 'usuario';
     const deudas = empresa?.deudas === 'si' ? 'Tiene deudas pendientes' : 'Al día';
 
-    const preguntaContextualizada = \`Actuá como ContaIA, asesor fiscal de Argentina. Usuario: \${nombre} (\${tipo}, Categoría: \${categoria}, Deudas: \${deudas}). Responde la siguiente pregunta basándote estrictamente en tu base de conocimiento de ARCA: \${pregunta}\`;
+    const preguntaContextualizada = `Actuá como ContaIA, asesor fiscal de Argentina. Usuario: ${nombre} (${tipo}, Categoría: ${categoria}, Deudas: ${deudas}). Responde la siguiente pregunta basándote estrictamente en tu base de conocimiento de ARCA: ${pregunta}`;
 
     const payload = {
       pregunta: preguntaContextualizada
@@ -340,3 +340,4 @@ const IAView = (() => {
     renderSugerenciasCards, cargarConversacion
   };
 })();
+
