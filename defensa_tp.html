@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ContaIA — Defensa TP Ingeniería de Software</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+
+    :root {
+      --primary: #6366f1;
+      --secondary: #8b5cf6;
+      --accent: #06b6d4;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --dark: #070714;
+      --text: #1e1b4b;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: white;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* ── Page Layout ────────────────────────────── */
+    .page {
+      width: 210mm;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    /* ── Cover Page ─────────────────────────────── */
+    .cover {
+      height: 297mm;
+      background: linear-gradient(135deg, #070714 0%, #0f0f3a 50%, #0a0a28 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 48px;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -10%;
+      width: 70%;
+      height: 70%;
+      background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 70%);
+    }
+
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      right: -5%;
+      width: 60%;
+      height: 60%;
+      background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%);
+    }
+
+    .cover-content { position: relative; z-index: 1; }
+
+    .cover-logo {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 24px;
+      box-shadow: 0 12px 40px rgba(99,102,241,0.5);
+    }
+
+    .cover-tag {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(99,102,241,0.2);
+      border: 1px solid rgba(99,102,241,0.4);
+      border-radius: 100px;
+      color: #a5b4fc;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .cover h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 56px;
+      font-weight: 800;
+      color: white;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    .cover h1 span {
+      background: linear-gradient(135deg, #818cf8, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cover-subtitle {
+      font-size: 18px;
+      color: #94a3b8;
+      margin-bottom: 48px;
+      font-weight: 400;
+    }
+
+    .cover-divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(135deg, #6366f1, #06b6d4);
+      border-radius: 2px;
+      margin: 0 auto 40px;
+    }
+
+    .cover-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 48px;
+    }
+
+    .cover-info-item {
+      color: #cbd5e1;
+      font-size: 13px;
+    }
+
+    .cover-info-item strong { color: white; }
+
+    .cover-pills {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cover-pill {
+      padding: 8px 18px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      color: #e2e8f0;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    /* ── Content Pages ──────────────────────────── */
+    .content-page {
+      padding: 48px 52px;
+      page-break-after: always;
+      min-height: 297mm;
+      position: relative;
+    }
+
+    .content-page:last-child { page-break-after: avoid; }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid;
+      border-image: linear-gradient(135deg, #6366f1, #06b6d4) 1;
+    }
+
+    .page-header-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .page-header h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .page-header p { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    /* Sections */
+    .section { margin-bottom: 28px; }
+    .section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, #e5e7eb, transparent);
+    }
+
+    /* Cards */
+    .card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+
+    .card-accent {
+      border-left: 4px solid var(--primary);
+    }
+
+    .card-success { border-left: 4px solid var(--success); }
+    .card-warning { border-left: 4px solid var(--warning); }
+    .card-danger { border-left: 4px solid var(--danger); }
+    .card-accent-cyan { border-left: 4px solid var(--accent); }
+
+    .card h4 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .card p { font-size: 12px; color: #374151; line-height: 1.6; }
+    .card ul { padding-left: 16px; margin-top: 6px; }
+    .card ul li { font-size: 12px; color: #374151; margin-bottom: 3px; line-height: 1.5; }
+
+    /* Grid */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+    /* Highlight box */
+    .highlight {
+      background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.06));
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+
+    .highlight h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .highlight p { font-size: 12.5px; color: #374151; line-height: 1.7; }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    th {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+    }
+
+    th:first-child { border-radius: 8px 0 0 0; }
+    th:last-child { border-radius: 0 8px 0 0; }
+
+    td {
+      padding: 9px 14px;
+      border-bottom: 1px solid var(--border);
+      color: #374151;
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td { background: #f8fafc; }
+    tr:last-child td { border-bottom: none; }
+
+    /* Badge */
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 100px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .badge-primary { background: rgba(99,102,241,0.12); color: var(--primary); }
+    .badge-success { background: rgba(16,185,129,0.12); color: var(--success); }
+    .badge-warning { background: rgba(245,158,11,0.12); color: var(--warning); }
+    .badge-danger { background: rgba(239,68,68,0.12); color: var(--danger); }
+
+    /* Quote */
+    .quote {
+      border-left: 4px solid var(--accent);
+      padding: 14px 20px;
+      background: rgba(6,182,212,0.05);
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 14px;
+    }
+
+    .quote p { font-size: 13px; color: #0e7490; font-style: italic; line-height: 1.6; }
+
+    /* Automation steps */
+    .auto-step {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 14px;
+      align-items: flex-start;
+    }
+
+    .auto-step-num {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .auto-step-content h4 { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+    .auto-step-content p { font-size: 12px; color: var(--muted); }
+
+    /* Footer */
+    .page-footer {
+      position: absolute;
+      bottom: 24px;
+      left: 52px; right: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .footer-logo { font-weight: 800; color: var(--primary); font-size: 11px; }
+
+    /* Diagram */
+    .diagram {
+      background: #0f0f2e;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 14px;
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: #94a3b8;
+      line-height: 1.8;
+    }
+
+    .diagram .node { color: #818cf8; font-weight: 700; }
+    .diagram .arrow { color: #475569; }
+    .diagram .label { color: #06b6d4; }
+
+    /* Chip row */
+    .chip-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .chip {
+      padding: 4px 12px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* Print */
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .cover { height: 297mm; }
+      .content-page { page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ════════════════════════════════════
+       PORTADA
+  ════════════════════════════════════ -->
+  <div class="cover">
+    <div class="cover-content">
+      <div class="cover-logo">🧮</div>
+      <div class="cover-tag">Trabajo Práctico — Ingeniería de Software</div>
+      <h1>Conta<span>IA</span></h1>
+      <p class="cover-subtitle">Contador Online Inteligente con Automatización e IA</p>
+      <div class="cover-divider"></div>
+
+      <div class="cover-info">
+        <div class="cover-info-item">📚 <strong>Materia:</strong> Ingeniería de Software</div>
+        <div class="cover-info-item">🎯 <strong>Tema:</strong> Automatización de procesos con Inteligencia Artificial</div>
+        <div class="cover-info-item">👤 <strong>Alumnos:</strong> Romero, Gerardo - Soria, Nahomi - Rubiolo, Facundo</div>
+        <div class="cover-info-item">📅 <strong>Año:</strong> 2026</div>
+      </div>
+
+      <div class="cover-pills">
+        <span class="cover-pill">🤖 NotebookLM</span>
+        <span class="cover-pill">📅 ARCA 2025-2026</span>
+        <span class="cover-pill">🔔 Alertas Automáticas</span>
+        <span class="cover-pill">💰 Monotributo</span>
+        <span class="cover-pill">⚡ JavaScript</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       PÁG 1: ¿QUÉ ES Y PARA QUIÉN?
+  ════════════════════════════════════ -->
+  <div class="content-page">
+    <div class="page-header">
+      <div class="page-header-icon">🎯</div>
+      <div>
+        <h2>¿Qué es ContaIA y para quién va?</h2>
+        <p>Problema que resuelve · Público objetivo · Contexto argentino</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">El problema real</div>
+      <div class="highlight">
+        <h3>El 70% de los monotributistas en Argentina pierde vencimientos fiscales</h3>
+        <p>En Argentina hay más de <strong>4 millones de monotributistas</strong>. La mayoría son emprendedores, freelancers y pequeños comerciantes que deben gestionar solos sus obligaciones con ARCA: pagos mensuales, recategorizaciones semestrales, declaraciones juradas y cambios regulatorios constantes. El resultado: deudas evitables, multas e intereses por falta de información o simple olvido.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">¿Para quién va la app?</div>
+      <div class="grid-2">
+        <div class="card card-accent">
+          <h4>💰 Monotributistas (Categorías A–K)</h4>
+          <p>El usuario principal. Desde el emprendedor que factura $500k al mes hasta el comercio con $40M anuales. Necesita saber cuándo pagar, si debe recategorizarse y qué novedades de ARCA lo afectan.</p>
+        </div>
+        <div class="card card-accent">
+          <h4>🏢 Pequeñas empresas y Responsables Inscriptos</h4>
+          <p>Negocios con empleados o mayor facturación que deben gestionar IVA mensual, Ganancias anuales y aportes de seguridad social.</p>
+        </div>
+        <div class="card card-accent-cyan">
+          <h4>👩‍💻 Profesionales independientes</h4>
+          <p>Diseñadores, programadores, médicos, abogados, arquitectos. Trabajan solos, facturan servicios y muchas veces no tienen asesor contable propio.</p>
+        </div>
+        <div class="card card-accent-cyan">
+          <h4>🚀 Nuevos emprendedores</h4>
+          <p>Personas que recién se registran en ARCA y no conocen el sistema. ContaIA actúa como guía desde el onboarding hasta la operación diaria.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Contexto y justificación</div>
+      <table>
+        <tr>
+          <th>Dato</th>
+          <th>Fuente / Impacto</th>
+        </tr>
+        <tr>
+          <td>+4 millones de monotributistas en Argentina</td>
+          <td>Mercado masivo sin solución simple y accesible</td>
+        </tr>
+        <tr>
+          <td>ARCA cambió su nombre y portal en 2024 (ex-AFIP)</td>
+          <td>Confusión generalizada entre contribuyentes</td>
+        </tr>
+        <tr>
+          <td>Topes de monotributo se actualizan 2 veces por año</td>
+          <td>Alta tasa de desactualización si no se sigue de cerca</td>
+        </tr>
+        <tr>
+          <td>Plan de facilidades activo hasta julio 2026</td>
+          <td>Miles de contribuyentes con deudas que podrían regularizar</td>
+        </tr>
+        <tr>
+          <td>Nuevas resoluciones ARCA cada 15-30 días</td>
+          <td>Imposible estar al día sin un sistema de alertas</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      <span class="footer-logo">🧮 ContaIA</span>
+      <span>TP Ingeniería de Software — 2026</span>
+      <span>Página 1 de 4</span>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       PÁG 2: ¿QUÉ LA HACE DIFERENTE?
+  ════════════════════════════════════ -->
+  <div class="content-page">
+    <div class="page-header">
+      <div class="page-header-icon">⚡</div>
+      <div>
+        <h2>¿Qué la hace diferente?</h2>
+        <p>Ventajas competitivas · Diferenciadores únicos · Comparación con alternativas</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Los 3 diferenciadores clave</div>
+      <div class="grid-3">
+        <div class="highlight" style="text-align:center">
+          <div style="font-size:2rem;margin-bottom:8px">🤖</div>
+          <h3 style="font-size:13px;margin-bottom:6px">IA Real con<br>NotebookLM</h3>
+          <p style="font-size:11px">Único sistema con base de conocimiento fiscal real. Respuestas con citas de fuentes ARCA verificadas.</p>
+        </div>
+        <div class="highlight" style="text-align:center">
+          <div style="font-size:2rem;margin-bottom:8px">🔔</div>
+          <h3 style="font-size:13px;margin-bottom:6px">Alertas 100%<br>Automáticas</h3>
+          <p style="font-size:11px">El sistema trabaja solo. Verifica vencimientos cada hora y avisa antes de que sea tarde.</p>
+        </div>
+        <div class="highlight" style="text-align:center">
+          <div style="font-size:2rem;margin-bottom:8px">📰</div>
+          <h3 style="font-size:13px;margin-bottom:6px">Feed ARCA<br>Integrado</h3>
+          <p style="font-size:11px">Novedades, resoluciones y cambios del portal ARCA en lenguaje claro y accionable.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Comparación con alternativas existentes</div>
+      <table>
+        <tr>
+          <th>Característica</th>
+          <th>Portal ARCA</th>
+          <th>App de contador</th>
+          <th style="background:linear-gradient(135deg,#4f46e5,#7c3aed)">ContaIA ✓</th>
+        </tr>
+        <tr>
+          <td>Recordatorios automáticos</td>
+          <td>❌ No</td>
+          <td>⚠ Básico</td>
+          <td><strong>✅ Inteligente, por hora</strong></td>
+        </tr>
+        <tr>
+          <td>Sugerencias con IA</td>
+          <td>❌ No</td>
+          <td>❌ No</td>
+          <td><strong>✅ NotebookLM real</strong></td>
+        </tr>
+        <tr>
+          <td>Novedades ARCA integradas</td>
+          <td>⚠ Dispersas</td>
+          <td>❌ No</td>
+          <td><strong>✅ Feed centralizado</strong></td>
+        </tr>
+        <tr>
+          <td>Personalizado por perfil fiscal</td>
+          <td>❌ No</td>
+          <td>⚠ A veces</td>
+          <td><strong>✅ Categoría + tipo + estado</strong></td>
+        </tr>
+        <tr>
+          <td>Acceso gratuito</td>
+          <td>✅ Sí</td>
+          <td>❌ De pago</td>
+          <td><strong>✅ 100% gratuito</strong></td>
+        </tr>
+        <tr>
+          <td>Interfaz simple e intuitiva</td>
+          <td>❌ Compleja</td>
+          <td>⚠ Variable</td>
+          <td><strong>✅ Dark mode premium</strong></td>
+        </tr>
+        <tr>
+          <td>Consultas en lenguaje natural</td>
+          <td>❌ No</td>
+          <td>❌ No</td>
+          <td><strong>✅ Chat con IA</strong></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Propuesta de valor</div>
+      <div class="quote">
+        <p>"ContaIA no reemplaza al contador: <strong>evita que el usuario lo necesite para las cosas básicas</strong>. Le da al emprendedor el mismo nivel de información que tendría si tuviera un contador personal disponible 24/7 — pero gratis, automatizado y con IA."</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="footer-logo">🧮 ContaIA</span>
+      <span>TP Ingeniería de Software — 2026</span>
+      <span>Página 2 de 4</span>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       PÁG 3: ¿QUÉ AUTOMATIZA?
+  ════════════════════════════════════ -->
+  <div class="content-page">
+    <div class="page-header">
+      <div class="page-header-icon">⚙</div>
+      <div>
+        <h2>¿Qué automatiza ContaIA?</h2>
+        <p>Procesos automatizados · Motor de alertas · Integración IA · Arquitectura técnica</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Automatizaciones implementadas</div>
+
+      <div class="auto-step">
+        <div class="auto-step-num">1</div>
+        <div class="auto-step-content">
+          <h4>🔔 Motor de alertas automático — cada 60 minutos</h4>
+          <p>El sistema verifica cada hora todos los vencimientos del calendario ARCA contra la fecha actual. Si detecta algo vencido o próximo a vencer (≤7 días configurables), dispara automáticamente: un banner de alerta en la pantalla, notificaciones toast y un badge en el menú. El usuario no necesita hacer nada.</p>
+        </div>
+      </div>
+
+      <div class="auto-step">
+        <div class="auto-step-num">2</div>
+        <div class="auto-step-content">
+          <h4>📅 Cálculo automático de estados de vencimientos</h4>
+          <p>Cada vencimiento del calendario ARCA tiene su estado calculado automáticamente en tiempo real: <span class="badge badge-danger">Vencido</span> (fecha pasada + impago), <span class="badge badge-warning">Próximo</span> (≤7 días), <span class="badge badge-primary">Programado</span> (futuro), <span class="badge badge-success">Pagado</span> (marcado por el usuario). El color del calendario se actualiza solo.</p>
+        </div>
+      </div>
+
+      <div class="auto-step">
+        <div class="auto-step-num">3</div>
+        <div class="auto-step-content">
+          <h4>🤖 Generación automática de sugerencias personalizadas por IA</h4>
+          <p>Al ingresar al módulo IA, el sistema carga automáticamente el perfil del usuario (tipo de contribuyente, categoría de monotributo, estado fiscal) y genera sugerencias personalizadas sin que el usuario tenga que preguntar nada. Usa el notebook de NotebookLM con toda la info de ARCA cargada.</p>
+        </div>
+      </div>
+
+      <div class="auto-step">
+        <div class="auto-step-num">4</div>
+        <div class="auto-step-content">
+          <h4>📰 Actualización y clasificación automática del feed de ARCA</h4>
+          <p>Las novedades de ARCA se cargan, clasifican por categoría (Monotributo, IVA, Ganancias, etc.) y se marcan automáticamente como leídas/no leídas. El badge de notificaciones en el menú se actualiza solo mostrando cuántas novedades no leyó el usuario.</p>
+        </div>
+      </div>
+
+      <div class="auto-step">
+        <div class="auto-step-num">5</div>
+        <div class="auto-step-content">
+          <h4>🔄 Detección automática de necesidad de recategorización</h4>
+          <p>En el Dashboard, el sistema evalúa el estado fiscal del usuario y muestra automáticamente un consejo si detecta que está en período de recategorización (enero/julio) o si declaró que sus ingresos se acercan al límite de su categoría actual.</p>
+        </div>
+      </div>
+
+      <div class="auto-step">
+        <div class="auto-step-num">6</div>
+        <div class="auto-step-content">
+          <h4>💾 Persistencia automática de sesión y datos</h4>
+          <p>El sistema guarda automáticamente en localStorage: sesión del usuario, empresa, vencimientos pagados, novedades leídas, historial de consultas IA y tareas pendientes. Al reabrir la app, todo está restaurado sin ninguna acción del usuario.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Diagrama de flujo de automatización</div>
+      <div class="diagram">
+<span class="node">APP INICIA</span>
+    │
+    ├──▶ <span class="label">checkAlertas()</span> ──▶ Fetch calendario ARCA ──▶ Calcula días ──▶ <span class="node">Banner / Toast</span>
+    │         │
+    │         └──▶ Repite cada <span class="label">60 minutos</span> en background (setInterval)
+    │
+    ├──▶ <span class="label">Dashboard.init()</span> ──▶ Carga datos ──▶ Renderiza KPIs ──▶ <span class="node">Estado automático</span>
+    │
+    ├──▶ <span class="label">IAView.init()</span> ──▶ Lee perfil usuario ──▶ <span class="node">Sugerencias personalizadas</span>
+    │
+    └──▶ <span class="label">NotebookLM MCP</span> ──▶ Query con contexto ──▶ <span class="node">Respuesta con citas reales</span>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="footer-logo">🧮 ContaIA</span>
+      <span>TP Ingeniería de Software — 2026</span>
+      <span>Página 3 de 4</span>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       PÁG 4: ARQUITECTURA + PREGUNTAS DEL PROFE
+  ════════════════════════════════════ -->
+  <div class="content-page">
+    <div class="page-header">
+      <div class="page-header-icon">🏗</div>
+      <div>
+        <h2>Arquitectura técnica y preguntas frecuentes</h2>
+        <p>Stack tecnológico · Decisiones de diseño · Respuestas para la defensa</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Stack tecnológico y justificación</div>
+      <table>
+        <tr>
+          <th>Componente</th>
+          <th>Tecnología</th>
+          <th>Justificación</th>
+        </tr>
+        <tr>
+          <td><strong>Frontend</strong></td>
+          <td>HTML + CSS + JavaScript vanilla</td>
+          <td>Sin dependencias, corre en cualquier navegador sin instalar nada</td>
+        </tr>
+        <tr>
+          <td><strong>Persistencia</strong></td>
+          <td>localStorage del navegador</td>
+          <td>Sin servidor requerido, ideal para TP; en producción se migraría a base de datos</td>
+        </tr>
+        <tr>
+          <td><strong>Inteligencia Artificial</strong></td>
+          <td>NotebookLM (Google) vía MCP</td>
+          <td>IA real con fuentes verificadas de ARCA; respuestas con citas de documentos</td>
+        </tr>
+        <tr>
+          <td><strong>Datos fiscales</strong></td>
+          <td>JSON estático (calendario + novedades)</td>
+          <td>Fácil actualización; en producción conectaría con API de ARCA</td>
+        </tr>
+        <tr>
+          <td><strong>Diseño</strong></td>
+          <td>Dark mode + glassmorphism</td>
+          <td>Tendencia actual de UI; mejora percepción de modernidad del sistema</td>
+        </tr>
+        <tr>
+          <td><strong>Arquitectura</strong></td>
+          <td>SPA (Single Page Application)</td>
+          <td>Experiencia fluida sin recargas; router en JavaScript puro</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Preguntas que puede hacer el profesor — con respuestas</div>
+
+      <div class="card card-warning">
+        <h4>❓ "¿Por qué usaron localStorage y no una base de datos real?"</h4>
+        <p>Para el alcance del TP, localStorage cumple perfectamente: persiste datos, soporta múltiples usuarios en la misma máquina y no requiere backend. La arquitectura está diseñada para que la capa de storage se pueda reemplazar por una API REST sin cambiar el resto del sistema. En producción usaríamos PostgreSQL o Firebase.</p>
+      </div>
+
+      <div class="card card-warning">
+        <h4>❓ "¿Qué tan real es la integración con NotebookLM?"</h4>
+        <p>100% real. Creamos un notebook en notebooklm.google.com con 5 fuentes de información fiscal argentina (Monotributo 2025-2026, ARCA institucional, Ganancias, Bienes Personales, portal oficial de ARCA). El sistema hace queries reales y devuelve respuestas con citas a las fuentes originales. Se puede verificar en: <strong>notebooklm.google.com/notebook/f61ac173-b64f-4b14-b87b-343638438875</strong></p>
+      </div>
+
+      <div class="card card-warning">
+        <h4>❓ "¿Cómo escalaría este sistema a producción?"</h4>
+        <p>1) Backend Node.js/Python con autenticación JWT. 2) Base de datos PostgreSQL para usuarios y datos fiscales. 3) API real de ARCA (cuando esté disponible) o scraping del portal. 4) Sistema de notificaciones push reales (Web Push API). 5) NotebookLM Enterprise API para queries en producción. La arquitectura modular actual lo permite sin reescribir el frontend.</p>
+      </div>
+
+      <div class="card card-warning">
+        <h4>❓ "¿Qué principios de Ingeniería de Software aplicaron?"</h4>
+        <p><strong>Separación de responsabilidades:</strong> cada módulo JS tiene una única función (auth, storage, calendar, etc.). <strong>DRY:</strong> utilidades centralizadas en utils.js y storage.js. <strong>Modularidad:</strong> cualquier módulo puede reemplazarse sin afectar a los demás. <strong>UX/Usabilidad:</strong> onboarding guiado, feedback visual inmediato, diseño intuitivo.</p>
+      </div>
+
+      <div class="card card-success">
+        <h4>✅ Punto fuerte para mencionar: el valor diferencial del TP</h4>
+        <p>A diferencia de sistemas típicos que solo muestran información, ContaIA <strong>actúa proactivamente</strong>: el sistema trabaja aunque el usuario no esté mirando la pantalla. El checker de alertas corre en background, los estados se recalculan solos y la IA genera recomendaciones sin que nadie pregunte. Eso es automatización real.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Módulos del sistema</div>
+      <div class="chip-row">
+        <span class="chip">🔐 Auth</span>
+        <span class="chip">🚀 Onboarding</span>
+        <span class="chip">📊 Dashboard</span>
+        <span class="chip">📅 Calendario Fiscal</span>
+        <span class="chip">📰 Novedades ARCA</span>
+        <span class="chip">🤖 Asistente IA</span>
+        <span class="chip">⚙ Perfil</span>
+        <span class="chip">💾 Storage</span>
+        <span class="chip">🛠 Utils</span>
+        <span class="chip">🗺 Router SPA</span>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="footer-logo">🧮 ContaIA</span>
+      <span>github.com/RomeroGerardo/tp_ContaIa</span>
+      <span>Página 4 de 4</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Auto print hint
+  console.log('Para guardar como PDF: Ctrl+P → Guardar como PDF → Sin márgenes → A4');
+</script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ContaIA — Presentación</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Plus+Jakarta+Sans:wght@800&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #070714;
+      color: #f8fafc;
+      overflow: hidden;
+    }
+
+    /* ── Contenedor principal de slides ── */
+    #slider {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 10vw;
+      position: relative;
+    }
+
+    /* ── Tipografía y Elementos ── */
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 4.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #818cf8, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: #818cf8;
+      margin-bottom: 40px;
+      border-bottom: 2px solid rgba(99,102,241,0.3);
+      padding-bottom: 15px;
+      display: inline-block;
+    }
+
+    .subtitle {
+      font-size: 1.8rem;
+      color: #94a3b8;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    ul {
+      list-style: none;
+      font-size: 1.5rem;
+      line-height: 1.8;
+    }
+
+    li {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    li::before {
+      content: '➔';
+      color: #06b6d4;
+      font-weight: bold;
+    }
+
+    .highlight {
+      color: #ffffff;
+      font-weight: 600;
+      background: rgba(99,102,241,0.2);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    /* ── Tarjeta de Guion (Oculta por defecto) ── */
+    .script-card {
+      position: absolute;
+      bottom: 30px;
+      left: 10vw;
+      right: 10vw;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid #334155;
+      padding: 20px 30px;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      transform: translateY(150%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+    }
+
+    .script-card.visible {
+      transform: translateY(0);
+    }
+
+    .script-card h3 {
+      font-size: 1.2rem;
+      color: #f59e0b;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .script-card p {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* ── Controles ── */
+    .controls {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: flex;
+      gap: 15px;
+      z-index: 100;
+    }
+
+    .btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: rgba(99, 102, 241, 0.5);
+      border-color: #818cf8;
+    }
+
+    .btn-text {
+      width: auto;
+      border-radius: 100px;
+      padding: 0 20px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #6366f1, #06b6d4);
+      transition: width 0.3s;
+      z-index: 100;
+    }
+
+    /* Fondo animado sutil */
+    .bg-glow {
+      position: absolute;
+      width: 60vw;
+      height: 60vw;
+      background: radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 60%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="progress" id="progress"></div>
+
+  <div id="slider">
+    
+    <!-- DIAPOSITIVA 1 -->
+    <section class="slide">
+      <div class="bg-glow"></div>
+      <h1>ContaIA</h1>
+      <p class="subtitle">Sistema de Automatización Fiscal con IA</p>
+      <p style="font-size: 1.5rem; color: #64748b; margin-top: 20px;">Simplificando la gestión tributaria en Argentina</p>
+      
+      <div style="margin-top: 80px; display: flex; align-items: center; gap: 20px;">
+        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">👨‍💻</div>
+        <div>
+          <p style="font-size: 1.2rem; font-weight: 600;">Expositores</p>
+          <p style="font-size: 1.4rem; color: #06b6d4;">Romero, Gerardo - Soria, Nahomi - Rubiolo, Facundo</p>
+        </div>
+      </div>
+
+      <div class="script-card">
+        <h3>🎤 Guion sugerido</h3>
+        <p>"Buenos días al tribunal y a todos los presentes. Nosotros somos Gerardo, Nahomi y Facundo, y hoy venimos a presentar la defensa técnica y funcional de nuestro proyecto: ContaIA, un sistema diseñado para resolver un dolor de cabeza constante para miles de trabajadores independientes en nuestro país: la gestión de sus obligaciones fiscales."</p>
+      </div>
+    </section>
+
+    <!-- DIAPOSITIVA 2 -->
+    <section class="slide">
+      <h2>El Problema Fiscal</h2>
+      <ul>
+        <li><span class="highlight">Complejidad del calendario:</span> Vencimientos que varían según terminación del CUIT.</li>
+        <li><span class="highlight">Trámites críticos y sanciones:</span> Falta de recategorización (enero/julio) genera multas y recargos.</li>
+        <li><span class="highlight">Desinformación constante:</span> Cambios frecuentes en topes, prórrogas y normas de ARCA.</li>
+        <li><span class="highlight">Carga mental:</span> Pérdida de tiempo y dinero al intentar no olvidar obligaciones.</li>
+      </ul>
+
+      <div class="script-card">
+        <h3>🎤 Guion sugerido</h3>
+        <p>"Para entender por qué desarrollamos este sistema, primero debemos entender el problema. En Argentina, un contribuyente pequeño se enfrenta a un laberinto normativo. Olvidar trámites críticos como las recategorizaciones genera deudas e intereses. Hoy en día, olvidar un vencimiento no es solo un error humano, es una pérdida económica. Aquí es donde la tecnología debe intervenir."</p>
+      </div>
+    </section>
+
+    <!-- DIAPOSITIVA 3 -->
+    <section class="slide">
+      <h2>¿Qué es ContaIA y para quién es?</h2>
+      <p class="subtitle">Sistema de contabilidad online inteligente</p>
+      <ul>
+        <li><strong>Objetivo:</strong> Evitar pérdidas de vencimientos, deudas innecesarias y desinformación.</li>
+        <li><strong>Para quién está diseñado:</strong>
+          <ul style="margin-top: 15px; margin-left: 30px; font-size: 1.3rem;">
+            <li><span class="highlight">Monotributistas</span> de todas las categorías (A-K).</li>
+            <li>Emprendedores y profesionales independientes.</li>
+            <li>Pequeñas empresas y Responsables Inscriptos.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="script-card">
+        <h3>🎤 Guion sugerido</h3>
+        <p>"ContaIA automatiza el seguimiento de las obligaciones fiscales para evitar multas. Está construido para la base de la economía: monotributistas, emprendedores y pequeñas empresas que necesitan enfocarse en su negocio y no en perseguir el calendario de ARCA."</p>
+      </div>
+    </section>
+
+    <!-- DIAPOSITIVA 4 -->
+    <section class="slide">
+      <h2>Funcionalidades Principales</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+        <ul>
+          <li><span class="highlight">Onboarding:</span> Perfilamiento fiscal detallado.</li>
+          <li><span class="highlight">Dashboard:</span> KPIs de estado y tareas pendientes.</li>
+          <li><span class="highlight">Calendario Interactivo:</span> Vista mensual con código de colores (vencido, próximo, pagado).</li>
+        </ul>
+        <ul>
+          <li><span class="highlight">Novedades ARCA:</span> Feed filtrable con resoluciones y control de lectura.</li>
+          <li><span class="highlight">Asistente IA:</span> Chat contextualizado conectado a base de conocimiento real.</li>
+        </ul>
+      </div>
+
+      <div class="script-card">
+        <h3>🎤 Guion sugerido</h3>
+        <p>"El sistema ofrece un Dashboard con KPIs vitales y un calendario interactivo que avisa visualmente qué está por vencer. Además, integramos un centro de novedades de ARCA y un asistente de IA que responde consultas basándose estrictamente en el contexto fiscal específico de ese usuario."</p>
+      </div>
+    </section>
+
+    <!-- DIAPOSITIVA 5 -->
+    <section class="slide">
+      <h2>Automatizaciones (El Motor del Sistema)</h2>
+      <ul>
+        <li><span class="highlight">Monitoreo en background:</span> Verificación automática de vencimientos cada hora.</li>
+        <li><span class="highlight">Cálculo dinámico:</span> Actualización automática de estados y cálculo de días restantes.</li>
+        <li><span class="highlight">Sistema de Alertas:</span> Notificaciones (Toasts) y Banners en pantalla sin intervención humana.</li>
+        <li><span class="highlight">Sugerencias Proactivas:</span> La IA analiza el perfil y genera recomendaciones automáticamente.</li>
+      </ul>
+
+      <div class="script-card">
+        <h3>🎤 Guion sugerido</h3>
+        <p>"El valor real está en lo que el sistema hace por detrás. Hemos implementado un motor cronometrado que verifica los vencimientos cada hora. Si algo entra en umbral crítico, dispara banners de alerta automáticamente. El usuario no necesita buscar la información; el sistema se la entrega proactivamente."</p>
+      </div>
+    </section>
+
+    <!-- DIAPOSITIVA 6 -->
+    <section class="slide">
+      <h2>Arquitectura y Tecnología</h2>
+      <ul>
+        <li><span class="highlight">Frontend puro:</span> HTML, CSS, Vanilla JS. Diseño 'Glassmorphism' moderno y veloz.</li>
+        <li><span class="highlight">Persistencia (MVP):</span> `localStorage` para almacenamiento rápido en el cliente.</li>
+        <li><span class="highlight">Motor de Datos:</span> Estructuras JSON estáticas (Calendario y Novedades).</li>
+        <li><span class="highlight">El Diferenciador (IA):</span> Integración del protocolo <strong>MCP (Model Context Protocol)</strong> con <strong>NotebookLM</strong> para conectar a documentos reales de ARCA.</li>
+      </ul>
+
+      <div class="script-card">
+        <h3>🎤 Guion sugerido</h3>
+        <p>"Optamos por un stack ligero utilizando HTML, CSS y Vanilla JS. La persistencia se maneja con localStorage, ideal para este MVP. El verdadero logro de ingeniería fue integrar el protocolo NotebookLM MCP para potenciar nuestro Asistente IA, dotándolo de la capacidad de ofrecer respuestas precisas basadas en resoluciones reales de ARCA. Muchas gracias."</p>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="controls">
+    <button class="btn btn-text" onclick="toggleScript()" title="Mostrar/Ocultar Guion">Ver Guion (T)</button>
+    <button class="btn" onclick="prevSlide()" title="Anterior (Flecha Izquierda)">←</button>
+    <button class="btn" onclick="nextSlide()" title="Siguiente (Flecha Derecha o Espacio)">→</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slider = document.getElementById('slider');
+    const progress = document.getElementById('progress');
+
+    function updateSlide() {
+      slider.style.transform = `translateX(-${currentSlide * 100}vw)`;
+      progress.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+    }
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function toggleScript() {
+      const scripts = document.querySelectorAll('.script-card');
+      scripts.forEach(script => script.classList.toggle('visible'));
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      } else if (e.key.toLowerCase() === 't') {
+        toggleScript();
+      }
+    });
+
+    // Initial load
+    updateSlide();
+  </script>
+</body>
+</html>

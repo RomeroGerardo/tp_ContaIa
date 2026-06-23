@@ -340,6 +340,22 @@ const Dashboard = (() => {
     renderKPIs();
   }
 
+  function showAddTarea() {
+    const container = document.getElementById('dash-tareas');
+    if (!container) return;
+    container.innerHTML = `
+      <div class="tarea-add-row" style="display:flex; gap:10px; margin-top:15px; width:100%">
+        <input type="text" id="nueva-tarea-input" class="form-control" 
+               placeholder="Escribe una tarea..." 
+               onkeydown="if(event.key==='Enter')Dashboard.addTarea()"
+               style="flex:1; font-size:0.85rem; padding:8px 12px;">
+        <button class="btn btn-primary btn-sm" onclick="Dashboard.addTarea()">+ Agregar</button>
+        <button class="btn btn-ghost btn-sm" onclick="Dashboard.renderTareasPendientes()">✕</button>
+      </div>
+    `;
+    setTimeout(() => document.getElementById('nueva-tarea-input')?.focus(), 100);
+  }
+
   function startAutoRefresh() {
     // Refresh every 5 minutes to update relative dates
     setInterval(() => {
@@ -348,5 +364,5 @@ const Dashboard = (() => {
     }, 5 * 60 * 1000);
   }
 
-  return { init, render, marcarPagado, desmarcarPagado, addTarea, toggleTarea, deleteTarea };
+  return { init, render, marcarPagado, desmarcarPagado, addTarea, toggleTarea, deleteTarea, showAddTarea, renderTareasPendientes };
 })();

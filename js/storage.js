@@ -236,6 +236,20 @@ const Storage = (() => {
     set(keys.CONFIG, data);
   }
 
+  // ── IA Keys ───────────────────────────────────────────────
+
+  function getGeminiKey() {
+    return localStorage.getItem('contaia_gemini_key') || '';
+  }
+
+  function saveGeminiKey(key) {
+    if (key) {
+      localStorage.setItem('contaia_gemini_key', key.trim());
+    } else {
+      localStorage.removeItem('contaia_gemini_key');
+    }
+  }
+
   return {
     // User
     saveUser, getUser, userExists,
@@ -250,7 +264,7 @@ const Storage = (() => {
     // Novedades
     getNovedadesLeidas, marcarNovedadLeida,
     // IA
-    getSugerenciasIA, addSugerenciaIA,
+    getSugerenciasIA, addSugerenciaIA, getGeminiKey, saveGeminiKey,
     // Tareas
     getTareas, addTarea, toggleTarea, deleteTarea,
     // Config

@@ -1,0 +1,24 @@
+{
+  "name": "automatizacion-tp",
+  "version": "1.0.0",
+  "description": "Sistema de contabilidad online con automatización e IA para monotributistas y empresas argentinas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomeroGerardo/tp_ContaIa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RomeroGerardo/tp_ContaIa/issues"
+  },
+  "homepage": "https://github.com/RomeroGerardo/tp_ContaIa#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}
